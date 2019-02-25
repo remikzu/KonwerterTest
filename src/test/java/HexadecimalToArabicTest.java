@@ -25,7 +25,7 @@ class HexadecimalToArabicTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"3E8, 1000", "1D62D, 120365", "93C501, 9684225"})
+    @CsvSource({"98BA94, 10009236", "3E8, 1000", "1D62D, 120365", "93C501, 9684225"})
     void isBinaryNumberConvertionCorrect(String hexadecimalNumber, int arabicNumber) {
         Calculations hexadecimalToArabic = new Calculations();
         Assertions.assertEquals(arabicNumber, hexadecimalToArabic.convertHexadecimalToArabic(hexadecimalNumber));

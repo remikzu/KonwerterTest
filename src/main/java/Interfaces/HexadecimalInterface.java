@@ -5,8 +5,8 @@ package Interfaces;
  */
 public interface HexadecimalInterface {
 
-    public int[] numberToIntTabConverter(String hexadecimalNumber);
+    public long[] numberToIntTabConverter(String hexadecimalNumber);
     public boolean isHexadecimalNumberValid(String hexadecimalNumber);
-    public int convertHexadecimalToArabic(String hexadecimalNumber);
+    public long convertHexadecimalToArabic(String hexadecimalNumber);
 
 }

@@ -14,12 +14,12 @@ import java.util.regex.Pattern;
 public class Calculations implements HexadecimalInterface, BinaryInterface, RomanInterface {
 
     @Override
-    public int[] numberToIntTabConverter(String hexadecimalNumber) {
+    public long[] numberToIntTabConverter(String hexadecimalNumber) {
         if (!isHexadecimalNumberValid(hexadecimalNumber)) {
             return null;
         }
         char[] charTab = hexadecimalNumber.toCharArray();
-        int[] intTab = new int[charTab.length];
+        long[] intTab = new long[charTab.length];
 
         for (int i = 0; i < charTab.length; i++) {
             if (charTab[i] == 'A') {
@@ -32,6 +32,20 @@ public class Calculations implements HexadecimalInterface, BinaryInterface, Roma
                 intTab[i] = HexadecimalValues.D.getValue();
             } else if ( charTab[i] == 'E') {
                 intTab[i] = HexadecimalValues.E.getValue();
+            } else if ( charTab[i] == 'F') {
+                intTab[i] = HexadecimalValues.F.getValue();
+            } else if ( charTab[i] == 'a') {
+                intTab[i] = HexadecimalValues.a.getValue();
+            } else if ( charTab[i] == 'b') {
+                intTab[i] = HexadecimalValues.b.getValue();
+            } else if ( charTab[i] == 'c') {
+                intTab[i] = HexadecimalValues.c.getValue();
+            } else if ( charTab[i] == 'd') {
+                intTab[i] = HexadecimalValues.d.getValue();
+            } else if ( charTab[i] == 'e') {
+                intTab[i] = HexadecimalValues.e.getValue();
+            } else if ( charTab[i] == 'f') {
+                intTab[i] = HexadecimalValues.f.getValue();
             } else if ( charTab[i] == '0') {
                 intTab[i] = 0;
             } else if ( charTab[i] == '1') {
@@ -63,21 +77,12 @@ public class Calculations implements HexadecimalInterface, BinaryInterface, Roma
         char[] tab = hexadecimalNumber.toCharArray();
         for (int i = 0; i < tab.length; i++) {
             if (tab[i] == '0' ||
-                    tab[i] == '1' ||
-                    tab[i] == '2' ||
-                    tab[i] == '3' ||
-                    tab[i] == '4' ||
-                    tab[i] == '5' ||
-                    tab[i] == '6' ||
-                    tab[i] == '7' ||
-                    tab[i] == '8' ||
-                    tab[i] == '9' ||
-                    tab[i] == 'A' ||
-                    tab[i] == 'B' ||
-                    tab[i] == 'C' ||
-                    tab[i] == 'D' ||
-                    tab[i] == 'E' ||
-                    tab[i] == 'F') {
+                    tab[i] == '1' || tab[i] == '2' || tab[i] == '3' || tab[i] == '4' ||
+                    tab[i] == '5' || tab[i] == '6' || tab[i] == '7' || tab[i] == '8' ||
+                    tab[i] == '9' || tab[i] == 'A' || tab[i] == 'B' || tab[i] == 'C' ||
+                    tab[i] == 'D' || tab[i] == 'E' || tab[i] == 'F' || tab[i] == 'a' ||
+                    tab[i] == 'b' ||tab[i] == 'c' ||tab[i] == 'd' ||tab[i] == 'e' ||
+                    tab[i] == 'f') {
                 isCorrect = true;
             } else {
                 isCorrect = false;
@@ -88,11 +93,11 @@ public class Calculations implements HexadecimalInterface, BinaryInterface, Roma
     }
 
     @Override
-    public int convertHexadecimalToArabic(String hexadecimalNumber) {
+    public long convertHexadecimalToArabic(String hexadecimalNumber) {
         if (!isHexadecimalNumberValid(hexadecimalNumber))
             throw new IllegalArgumentException("Zły format liczby w formacie 16-tkowym!");
         int arabicNumber = 0;
-        int[] intTab = numberToIntTabConverter(hexadecimalNumber);
+        long[] intTab = numberToIntTabConverter(hexadecimalNumber);
         for (int i = intTab.length - 1; i >= 0; i--) {
             arabicNumber += intTab[i]*(Math.pow(16, (intTab.length - 1) - i));
         }
