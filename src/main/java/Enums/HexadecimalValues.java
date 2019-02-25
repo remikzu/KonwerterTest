@@ -1,4 +1,4 @@
-package HexadecimalToArabic;
+package Enums;
 
 /**
  * @author Remigiusz Zudzin

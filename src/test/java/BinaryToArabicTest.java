@@ -13,21 +13,21 @@ class BinaryToArabicTest {
     @ParameterizedTest
     @ValueSource(strings = {"1010","1111"})
     void isBinaryNumberCorrect(String number) {
-        BinaryToArabic binaryToArabic = new BinaryToArabic();
+        Calculations binaryToArabic = new Calculations();
         assertThat(binaryToArabic.isBinaryNumberValid(number)).isEqualTo(true);
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"1234","78951"})
     void isBinaryNumberCorrectFail(String number) {
-        BinaryToArabic binaryToArabic = new BinaryToArabic();
+        Calculations binaryToArabic = new Calculations();
         assertThat(binaryToArabic.isBinaryNumberValid(number)).isEqualTo(false);
     }
 
     @ParameterizedTest
     @CsvSource({"1010, 10", "1111, 15", "101111, 47", "11111111, 255"})
     void isBinaryNumberConvertionCorrect(String binaryNumber, int arabicNumber) {
-        BinaryToArabic binaryToArabic = new BinaryToArabic();
+        Calculations binaryToArabic = new Calculations();
         Assertions.assertEquals(arabicNumber, binaryToArabic.convertBinaryToArabic(binaryNumber));
     }
 
